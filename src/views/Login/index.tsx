@@ -77,13 +77,13 @@ export const Login = () => {
 						</Box>
 
 						<Box display="flex" justifyContent="center" mt={4}>
-							<Button
+							<Button href="/home"
 								variant="contained"
 								color="primary"
 								className={classes.btn}
 							>
 								Entrar
-							</Button>
+							</Button> 
 						</Box>
 					</Box>
 

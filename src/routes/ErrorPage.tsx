@@ -14,12 +14,12 @@ export const ErrorPage = () => {
 				<Box display="flex" justifyContent="center">
 					<Box>
 						<Typography variant="h6" mb={2}>
-							Oops! We can't find that page
+							Oops! Não encontramos esta página.
 						</Typography>
 
 						<Box display="flex" justifyContent="center">
 							<Button variant="contained" href="/" style={{ textTransform: 'none' }}>
-								Go Back Home
+								Voltar para a home
 							</Button>
 						</Box>
 					</Box>
