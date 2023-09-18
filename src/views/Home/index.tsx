@@ -5,7 +5,11 @@ export function Home() {
   return (
     <Box sx={{flexGrow: 1}}>
       <GlobalStyles styles={{
-          body: { backgroundImage: "url('/background.png')" }
+          body: { 
+            backgroundImage: "url('/left_background.png'), url('/right_background.png')", 
+            backgroundRepeat: "no-repeat, no-repeat", 
+            backgroundPosition: "0% 1100%, top right",
+          }
         }}
       />
       <Bar/>
@@ -21,10 +25,3 @@ export function Home() {
   );
 }
 
-/*export const Home = () => {
-	const classes = useStyles();
-
-	return (
-		<p></p>
-	);
-};*/
