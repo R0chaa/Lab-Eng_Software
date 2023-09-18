@@ -1,4 +1,4 @@
-import { Grid, Typography, Box, TextField, Button, Link } from "@mui/material";
+import { Grid, GlobalStyles, Typography, Box, TextField, Button, Link } from "@mui/material";
 import { useStyles } from "./styles";
 import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
@@ -18,7 +18,8 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
-  borderRadius: theme.shape.borderRadius,
+  borderRadius: "100px",
+  boxShadow: "2px 2px 4px 0px #D0D0EB inset, -3px -2px 9px 0px rgba(217, 219, 236, 0.40) inset",
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   '&:hover': {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
@@ -156,15 +157,19 @@ export function Home() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{backgroundColor: "#2F516F"}}>
-        <Toolbar>
+    <Box sx={{flexGrow: 1}}>
+      <GlobalStyles styles={{
+          body: { backgroundImage: "url('/background.png')" }
+        }}
+      />
+      <AppBar position="static" style={{marginTop:"50px", boxShadow:"none"}} color = "transparent" >
+        <Toolbar sx={{ ml: "50px", mr: "50px"}}>
           <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="open drawer"
-            sx={{ mr: 2 }}
+            sx={{ mr: 2}}
           >
             <MenuIcon />
           </IconButton>
@@ -175,18 +180,21 @@ export function Home() {
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
             CConnect
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
+          </Typography>   
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Box display={"flex"} alignItems={"center"}>            
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Buscar…"
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </Search>
+          </Box>
+
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
                 <MailIcon />
@@ -226,18 +234,17 @@ export function Home() {
             </IconButton>
           </Box>
         </Toolbar>
-      </AppBar>
+  </AppBar>
       {renderMobileMenu}
       {renderMenu}
     </Box>
   );
 }
 
-
 /*export const Home = () => {
 	const classes = useStyles();
 
 	return (
-		<p>thiago gayzao</p>
+		<p></p>
 	);
 };*/
