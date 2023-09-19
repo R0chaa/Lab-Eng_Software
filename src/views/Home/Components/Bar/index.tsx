@@ -70,14 +70,44 @@ export function Bar() {
         >
           <MenuIcon />
         </IconButton>
-        <Typography
-          variant="h6"
-          noWrap
-          component="div"
-          sx={{ display: { xs: "none", sm: "block" } }}
-        >
-          CConnect
-        </Typography>
+
+        <img src="logo.png" alt="logo"></img>
+
+        <Box>
+          <Typography sx = {{color: "#32A8EB", fontFamily: "Poppins", fontSize: "18px", fontStyle: "normal", fontWeight: 700,
+linHeight: "normal", mr:"40px", ml:"40px", mt:"12px"}}>
+            Sistema
+          </Typography>
+        </Box>
+
+        <Box>
+          <Typography sx = {{color: "#32A8EB", fontFamily: "Poppins", fontSize: "18px", fontStyle: "normal", fontWeight: 700,
+linHeight: "normal", mr:"40px", mt:"12px"}}>
+            Cases
+          </Typography>
+        </Box>
+
+        <Box>
+          <Typography sx = {{color: "#32A8EB", fontFamily: "Poppins", fontSize: "18px", fontStyle: "normal", fontWeight: 700,
+linHeight: "normal", mr:"40px", mt:"12px"}}>
+            Equipe
+          </Typography>
+        </Box>
+
+        <Box>
+          <Typography sx = {{color: "#32A8EB", fontFamily: "Poppins", fontSize: "18px", fontStyle: "normal", fontWeight: 700,
+linHeight: "normal", mr:"40px", mt:"12px"}}>
+            Saiba mais
+          </Typography>
+        </Box>
+
+        <Box>
+          <Typography sx = {{color: "#32A8EB", fontFamily: "Poppins", fontSize: "18px", fontStyle: "normal", fontWeight: 700,
+linHeight: "normal", mr:"40px", mt:"12px"}}>
+            Contato
+          </Typography>
+        </Box>
+
         <Box sx={{ flexGrow: 1 }} />
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
           <Box display={"flex"} alignItems={"center"}>

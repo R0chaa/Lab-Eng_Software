@@ -47,6 +47,59 @@ export function Home() {
           & Praticidade
         </Typography>
       </Box>
+      <Box>
+        <Typography
+          style={{
+            marginLeft: "70px",
+            color: "#76768F",
+            fontFamily: "Poppins",
+            fontSize: "19px",
+            fontStyle: "normal",
+            fontWeight: 550,
+            lineHeight: "normal",
+            marginTop: "20px",
+          }}
+        >
+          Visando facilitar uma série de interações, nosso app surge como
+          <br />
+          uma ótima maneira de simplificar e agilizar múltiplos processos
+          <br /> dentro de um condomínio residencial.
+        </Typography>
+      </Box>
+
+      <Box sx={{ ml: "70px", mt: "50px" }}>
+        <a href="/login">
+          <img src="Login.png" alt="Login"></img>
+        </a>
+      </Box>
+
+      <Box sx={{ ml: "70px", mt: "180px" }}>
+        <img src="/Facebook.png" alt="facebook" />
+        <img style={{ marginLeft: "20px" }} src="/Twitter.png" alt="facebook" />
+        <img
+          style={{ marginLeft: "20px" }}
+          src="/Linkedin.png"
+          alt="facebook"
+        />
+        <img
+          style={{ marginLeft: "20px" }}
+          src="/Pinterest.png"
+          alt="facebook"
+        />
+      </Box>
+
+      <Box sx={{
+        ml:"280px", 
+        mt:"-28px",
+        color: "#76768F",
+        fontFamily: "Poppins",
+        fontSize: "19px",
+        fontStyle: "normal",
+        fontWeight: 550,
+        lineHeight: "normal",
+        }}>
+        <Typography>Saiba mais como mudamos o mercado residencial.</Typography>
+      </Box>
     </Box>
   );
 }
