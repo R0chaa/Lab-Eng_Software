@@ -1,11 +1,13 @@
 import { Grid, Typography, Box, TextField, Button, Link } from "@mui/material";
 import { useStyles } from "./styles";
+import { Bar } from "./Components/Bar";
 
 export const Login = () => {
   const classes = useStyles();
 
   return (
     <Grid container>
+      <Bar />
       <Grid item xs={6}>
         <Grid
           justifyContent="center"
@@ -14,11 +16,11 @@ export const Login = () => {
           container
           className={classes.leftContent}
         >
-          <Box mb={10}>
-            <img src="/login.svg" alt="" width={300} />
+          <Box mb={10} >
+            <img src="/imagem_login.png" alt="" width={653} />
           </Box>
-
-          <Typography
+          
+          {/* <Typography
             variant="h2"
             className={classes.title}
             align="center"
@@ -29,7 +31,7 @@ export const Login = () => {
           <Typography variant="h4" className={classes.subtitle} align="center">
             O projeto “CConect” ajuda a <br /> deixar a seu condomínio <br />{" "}
             ainda mais cômodo.
-          </Typography>
+          </Typography> */}
         </Grid>
       </Grid>
       <Grid item xs={6}>

@@ -74,17 +74,17 @@ export function Home() {
       </Box>
 
       <Box sx={{ ml: "70px", mt: "180px" }}>
-        <img src="/Facebook.png" alt="facebook" />
-        <img style={{ marginLeft: "20px" }} src="/Twitter.png" alt="facebook" />
+        <img src="/facebook.png" alt="Facebook" />
+        <img style={{ marginLeft: "20px" }} src="/twitter.png" alt="Twitter" />
         <img
           style={{ marginLeft: "20px" }}
-          src="/Linkedin.png"
-          alt="facebook"
+          src="/linkedin.png"
+          alt="Linkedin"
         />
         <img
           style={{ marginLeft: "20px" }}
-          src="/Pinterest.png"
-          alt="facebook"
+          src="pinterest.png"
+          alt="Pinterest"
         />
       </Box>
 

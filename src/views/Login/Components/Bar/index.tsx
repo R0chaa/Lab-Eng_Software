@@ -69,7 +69,7 @@ export function Bar() {
           sx={{ mr: 2 }}
         >
           <MenuIcon />
-        </IconButton> 
+        </IconButton>
 
         <img src="logo.png" alt="logo"></img>
 

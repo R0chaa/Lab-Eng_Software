@@ -5,7 +5,6 @@ export const useStyles = makeStyles(() => ({
 		position: "relative",
 		height: "100%",
 		minHeight: "100vh",
-		backgroundImage: "linear-gradient(to right, #305270, #76a8cd)",
 	},
 	rightContent: {
 		position: "relative",
