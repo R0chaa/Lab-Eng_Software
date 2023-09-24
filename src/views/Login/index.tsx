@@ -110,7 +110,7 @@ export const Login = () => {
               <Box display="flex" justifyContent="center" mt={5}>
                 <img src="/Bem vindo ao Futuro.png" alt="" width={500} />
               </Box>
-              <Box ml={"50px"}>
+              <Box ml={"60px"}>
                 <img
                   style={{ marginTop: "30px" }}
                   src="/Login with facebook.png"
@@ -118,13 +118,13 @@ export const Login = () => {
                   width={500}
                 />
               </Box>
-              <Box ml={"50px"}>
+              <Box ml={"60px"}>
                 <img src="/Login with Google.png" alt="" width={500} />
               </Box>
             </Box>
 
             <Box mt={3}>
-              <Box ml={"65px"}>
+              <Box ml={"75px"}>
                 <TextField
                   id="outlined-basic"
                   label="E-mail"
@@ -133,7 +133,7 @@ export const Login = () => {
                 />
               </Box>
 
-              <Box mt={3} ml={"65px"}>
+              <Box mt={3} ml={"75px"}>
                 <TextField
                   id="outlined-basic"
                   label="Senha"
@@ -174,7 +174,7 @@ export const Login = () => {
                   </Box>
                   <Box
                     mt={-3.8}
-                    mr={8.4}
+                    mr={9.4}
                     textAlign={"right"}
                     sx={{
                       fontFamily: "Poppins",
@@ -196,7 +196,7 @@ export const Login = () => {
               </Box>
             </Box>
 
-            <Box ml={-3} display="flex" marginLeft={"65px"} mt={4}>
+            <Box display="flex" marginLeft={"75px"} mt={4}>
               <Button
                 href="/home"
                 variant="contained"
