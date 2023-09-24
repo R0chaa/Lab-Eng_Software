@@ -167,7 +167,7 @@ export const Login = () => {
                 color="primary"
                 className={classes.btn}
               >
-                Login
+                Entrar
               </Button>
             </Box>
 
