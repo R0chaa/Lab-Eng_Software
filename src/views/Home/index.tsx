@@ -1,5 +1,6 @@
 import { GlobalStyles, Box, Typography } from "@mui/material";
 import { Bar } from "./Components/Bar";
+import { Footer } from "./Components/Footer";
 
 export function Home() {
   return (
@@ -99,6 +100,9 @@ export function Home() {
         lineHeight: "normal",
         }}>
         <Typography>Saiba mais como mudamos o mercado residencial.</Typography>
+      </Box>
+      <Box sx={{width: "100%", mt: "90px"}}>
+        <Footer />
       </Box>
     </Box>
   );
