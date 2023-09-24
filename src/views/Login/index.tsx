@@ -75,13 +75,15 @@ export const Login = () => {
             <Box display="flex" justifyContent="center" mb={1}>
               <img src="/Bem vindo ao Futuro.png" alt="" width={500} />
             </Box>
-            <Box ml={25.5}>
+            <Box ml={"-13px"}>
               <img
                 style={{ marginTop: "15px" }}
                 src="/Login with facebook.png"
                 alt=""
                 width={500}
               />
+            </Box>
+            <Box ml={"-13px"}>
               <img src="/Login with Google.png" alt="" width={500} />
             </Box>
           </Box>
