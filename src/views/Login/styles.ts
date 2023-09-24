@@ -21,12 +21,16 @@ export const useStyles = makeStyles(() => ({
 		fontWeight: "400 !important",
 	},
 	btn: {
-		width: "400px",
+		width: "470px",
+		height: "50px",
+		borderRadius: "8px",
+		background: "linear-gradient(90deg, #AD00FE 1.72%, rgba(50, 168, 235, 0.50) 101.11%)",
 	},
 	input: {
-		width: "400px",
+		width: "470px",
 	},
 	link: {
 		textDecoration: "none !important",
+		color: "#6358DC",
 	},
 }));
