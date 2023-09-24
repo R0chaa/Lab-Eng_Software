@@ -33,4 +33,8 @@ export const useStyles = makeStyles(() => ({
 		textDecoration: "none !important",
 		color: "#6358DC",
 	},
+	rect: {
+		width: "620px",
+        height: "660px",
+	}
 }));

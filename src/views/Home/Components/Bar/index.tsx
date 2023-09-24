@@ -61,7 +61,7 @@ export function Bar() {
       color="transparent"
     >
       <Toolbar sx={{ ml: "50px", mr: "50px" }}>
-        <IconButton
+        {/* <IconButton
           size="large"
           edge="start"
           color="inherit"
@@ -69,7 +69,7 @@ export function Bar() {
           sx={{ mr: 2 }}
         >
           <MenuIcon />
-        </IconButton> 
+        </IconButton>  */}
 
         <img src="logo.png" alt="logo"></img>
 
