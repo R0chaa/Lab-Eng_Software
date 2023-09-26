@@ -1,6 +1,9 @@
 import makeStyles from "@mui/styles/makeStyles";
 
 export const useStyles = makeStyles(() => ({
+	footer: {
+		width: "100%",
+	},
 	leftContent: {
 		position: "relative",
 		height: "100%",

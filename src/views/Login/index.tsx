@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { useStyles } from "./styles";
 import { Bar } from "./Components/Bar";
+import { Footer } from "./Components/Footer";
 import { useState } from "react";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
@@ -30,7 +31,7 @@ export const Login = () => {
             backgroundImage:
               "url('/left_background.png'), url('/right_bg_login.png')",
             backgroundRepeat: "no-repeat, no-repeat",
-            backgroundPosition: "top left, bottom right",
+            backgroundPosition: "bottom left, bottom right",
             position: "relative, relative",
           },
         }}
@@ -45,7 +46,7 @@ export const Login = () => {
           className={classes.leftContent}
         >
           <Box mb={20} ml={30}>
-            <img src="/imagem_login.png" alt="" width={653} />
+            <img src="/imagem_login.png" alt="" width={550} />
           </Box>
 
           {/* <Typography
@@ -63,7 +64,7 @@ export const Login = () => {
 
 
         </Grid>
-        <Box sx={{ ml: "70px", mt: "-180px" }}>
+        <Box sx={{ ml: "90px", mt: "-230px" }}>
           <img src="/facebook.png" alt="Facebook" />
           <img style={{ marginLeft: "20px" }} src="/twitter.png" alt="Twitter" />
           <img
@@ -79,7 +80,7 @@ export const Login = () => {
         </Box>
 
         <Box sx={{
-          ml: "280px",
+          ml: "300px",
           mt: "-30px",
           color: "#76768F",
           fontFamily: "Poppins",
@@ -220,6 +221,9 @@ export const Login = () => {
 
         </Grid>
       </Grid>
+      <Box className={classes.footer}>
+        <Footer />
+      </Box>
     </Grid>
   );
 };

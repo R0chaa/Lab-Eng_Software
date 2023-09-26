@@ -7,7 +7,6 @@ import {
   InputBase,
 } from "@mui/material";
 import { styled, alpha } from "@mui/material/styles";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 
 const Search = styled("div")(({ theme }) => ({
