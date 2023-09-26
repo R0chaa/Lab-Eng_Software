@@ -108,7 +108,7 @@ export const Login = () => {
           }} className={classes.rect}>
             <Box>
               <Box display="flex" justifyContent="center" mt={5}>
-                <img src="/Bem vindo ao Futuro.png" alt="" width={500} />
+                <img src="/Bem vindo ao Futuro.png" alt="" width={450} />
               </Box>
               <Box ml={"60px"}>
                 <img

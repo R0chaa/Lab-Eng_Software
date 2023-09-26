@@ -6,7 +6,6 @@ export function Home() {
     <Box sx={{ flexGrow: 1 }}>
       <GlobalStyles
         styles={{
-          //body: { backgroundImage: "url('/background.png')" }
           body: {
             backgroundImage:
               "url('/left_background.png'), url('/right_background.png')",
