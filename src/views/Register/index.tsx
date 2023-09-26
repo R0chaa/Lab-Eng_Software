@@ -18,7 +18,7 @@ import Checkbox from "@mui/material/Checkbox";
 
 import InputAdornment from "@mui/material/InputAdornment";
 
-export const Login = () => {
+export const Register = () => {
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(true);
 
@@ -107,25 +107,21 @@ export const Login = () => {
             boxShadow: "4px 4px 60px 4px rgba(152, 206, 180, 0.20)",
             mt: "-10px"
           }} className={classes.rect}>
-            <Box>
-              <Box display="flex" justifyContent="center" mt={5}>
-                <img src="/Bem vindo ao Futuro.png" alt="" width={450} />
-              </Box>
-              <Box ml={"60px"}>
-                <img
-                  style={{ marginTop: "30px" }}
-                  src="/Login with facebook.png"
-                  alt=""
-                  width={500}
-                />
-              </Box>
-              <Box ml={"60px"}>
-                <img src="/Login with Google.png" alt="" width={500} />
-              </Box>
+            <Box display="flex" justifyContent="center" mt={7}>
+              <img src="/Bem vindo ao Futuro.png" alt="" width={450} />
             </Box>
 
-            <Box mt={3}>
+
+            <Box mt={6}>
               <Box ml={"75px"}>
+                <TextField
+                  id="outlined-basic"
+                  label="Nome"
+                  variant="outlined"
+                  className={classes.input}
+                />
+              </Box>
+              <Box mt={3} ml={"75px"}>
                 <TextField
                   id="outlined-basic"
                   label="E-mail"
@@ -155,7 +151,7 @@ export const Login = () => {
                     ),
                   }}
                 />
-                <Box>
+                {/* <Box>
                   <Box mt={2} textAlign={"left"}>
                     <FormControlLabel
                       sx={{ color: "#696969" }}
@@ -173,50 +169,46 @@ export const Login = () => {
                       label="Lembrar-me"
                     />
                   </Box>
-                  <Box
-                    mt={-3.8}
-                    mr={9.4}
-                    textAlign={"right"}
-                    sx={{
-                      fontFamily: "Poppins",
-                      fontSize: "16px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "135.5%",
-                    }}
-                  >
-                    <Link
-                      component="button"
-                      sx={{ color: "#6358DC" }}
-                      className={classes.link}
-                    >
-                      Esqueceu a senha?
-                    </Link>
-                  </Box>
+                </Box> */}
+              </Box>
+              <Box mt={3} ml={"75px"}>
+                <TextField
+                  id="outlined-basic"
+                  label="Telefone"
+                  variant="outlined"
+                  className={classes.input}
+                />
+              </Box>
+              <Box>
+                <Box mt={3} ml={"75px"}>
+                  <TextField
+                    id="outlined-basic"
+                    label="Número da Residência"
+                    variant="outlined"
+                    className={classes.shortInput}
+                  />
+                </Box>
+                <Box mt={-7} ml={"320px"}>
+                  <TextField
+                    id="outlined-basic"
+                    label="Bloco (Opcional)"
+                    variant="outlined"
+                    className={classes.shortInput}
+                  />
                 </Box>
               </Box>
             </Box>
 
             <Box display="flex" marginLeft={"75px"} mt={4}>
               <Button
-                href="/home"
+                href="/login"
                 variant="contained"
                 color="primary"
                 className={classes.btn}
               >
-                <Typography sx={{ fontFamily: "Poppins", fontSize: "24px", fontStyle: "bold"}}> Entrar </Typography>
-                
-              </Button>
-            </Box>
+                <Typography sx={{ fontFamily: "Poppins", fontSize: "24px", fontStyle: "bold" }}> Registre-se </Typography>
 
-            <Box ml={20} mt={4}>
-              <Box mb={1}>
-                <Typography sx={{ fontFamily: "Poppins" }}> Não tem uma conta?
-                  <Link component="button" className={classes.link}>
-                    <a href="/register" style={{ textDecoration: "none", color: "#6358DC" }}>&nbsp;Registre-se</a>
-                  </Link>
-                </Typography>
-              </Box>
+              </Button>
             </Box>
           </Grid>
 
