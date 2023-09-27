@@ -70,7 +70,7 @@ export function Bar() {
           <MenuIcon />
         </IconButton> */}
 
-        <img src="logo.png" alt="logo"></img>
+        <a href="/home"><img src="logo.png" alt="logo"/></a>
 
         <Box>
           <Typography sx = {{color: "#32A8EB", fontFamily: "Poppins", fontSize: "18px", fontStyle: "normal", fontWeight: 700,
