@@ -204,7 +204,7 @@ export const Login = () => {
                 color="primary"
                 className={classes.btn}
               >
-                <Typography sx={{ fontFamily: "Poppins", fontSize: "24px", fontStyle: "bold"}}> Entrar </Typography>
+                <Typography sx={{ fontFamily: "Poppins", fontSize: "24px",  fontWeight: 700}}> Entrar </Typography>
                 
               </Button>
             </Box>

@@ -206,7 +206,7 @@ export const Register = () => {
                 color="primary"
                 className={classes.btn}
               >
-                <Typography sx={{ fontFamily: "Poppins", fontSize: "24px", fontStyle: "bold" }}> Registre-se </Typography>
+                <Typography sx={{ fontFamily: "Poppins", fontSize: "24px", fontWeight: 700 }}> Registre-se </Typography>
 
               </Button>
             </Box>
