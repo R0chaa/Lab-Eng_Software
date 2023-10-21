@@ -5,7 +5,6 @@ import {
   Box,
   TextField,
   Button,
-  Link,
 } from "@mui/material";
 import { useStyles } from "./styles";
 import { Bar } from "./Components/Bar";
@@ -13,8 +12,6 @@ import { Footer } from "./Components/Footer";
 import { useState } from "react";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 
 import InputAdornment from "@mui/material/InputAdornment";
 

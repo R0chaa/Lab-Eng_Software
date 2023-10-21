@@ -3,7 +3,6 @@ import {
   Box,
   AppBar,
   Toolbar,
-  IconButton,
   InputBase,
 } from "@mui/material";
 import { styled, alpha } from "@mui/material/styles";

@@ -3,6 +3,7 @@ import { ErrorPage } from "./ErrorPage";
 import { Login } from "views/Login";
 import { Home } from "views/Home";
 import { Register } from "views/Register";
+import { Locals } from "views/Locals";
 
 export const router = createBrowserRouter([
 	{
@@ -21,5 +22,9 @@ export const router = createBrowserRouter([
 	{
 		path: "/register",
 		element: <Register />,
+	},
+	{
+		path: "/locals",
+		element: <Locals />,
 	},
 ]);

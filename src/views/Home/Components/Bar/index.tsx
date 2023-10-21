@@ -32,7 +32,6 @@ function useHover<T extends HTMLElement>(): UseHoverType<T> {
         };
       }
     },
-    [ref.current] // Recall only if ref changes
   );
 
   return [ref, value];
@@ -81,7 +80,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export function Bar() {
-  const [hoverRef, isHovered] = useHover();
+  const [isHovered] = useHover();
 
   return (
     <AppBar

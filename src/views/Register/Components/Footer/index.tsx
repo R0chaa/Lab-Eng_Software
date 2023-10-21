@@ -19,12 +19,12 @@ export function Footer(){
       >
         <Typography>Copyright © 2023</Typography>
         <Box ml={1}>
-          <a href="https://github.com/" target="_blank">
+          <a href="https://github.com/">
             <img src="https://img.icons8.com/ios-glyphs/50/ffffff/github.png" alt="GitHub icon" />
           </a>
         </Box>
         <Box ml={1}>
-          <a href="https://www.instagram.com/" target="_blank">
+          <a href="https://www.instagram.com/">
             <img src="https://img.icons8.com/ios-glyphs/50/ffffff/instagram.png" alt="Instagram icon" />
           </a>
         </Box>
