@@ -1,21 +1,25 @@
 {
-  "type" : "module",
-  "name": "nodejs_postgresql",
+  "name": "cconnect",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/app.js",
+  "main": "/api/index.js",
   "scripts": {
-    "start": "npx nodemon app.js"
+    "start": "nodemon ./api/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.3.1",
+    "body-parser": "^1.20.2",
     "express": "^4.18.2",
-    "mysql": "^2.18.1",
+    "mysql2": "^3.6.2",
+    "path": "^0.12.7",
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.33.0"
+    "sequelize": "^6.33.0",
+    "sequelize-cli": "^6.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
