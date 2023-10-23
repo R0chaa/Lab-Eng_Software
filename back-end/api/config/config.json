@@ -1,17 +1,22 @@
 {
   "development": {
-    "username": "srnfwnkq",
-    "password": "zFTcH1eSmDQ3iw-sedcy9xfm3Q3v2gER",
-    "database": "srnfwnkq",
-    "host": "silly.db.elephantsql.com",
-    "dialect": "postgres"
+    "username": "postgres",
+    "password": "12345678",
+    "database": "postgres",
+    "host": "dbcconnect.cx7ytep569gf.us-east-1.rds.amazonaws.com",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "rejectUnauthorized": false
+      }
+    }
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "postgres",
+    "password": "12345678",
+    "database": "dbcconnect",
+    "host": "dbcconnect.cx7ytep569gf.us-east-1.rds.amazonaws.com",
+    "dialect": "postgres"
   },
   "production": {
     "username": "root",
