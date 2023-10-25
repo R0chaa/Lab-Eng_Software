@@ -12,7 +12,7 @@ import { Footer } from "./Components/Footer";
 import BasicModal from "./Components/Modal";
 import CheckoutModal from "./Components/CheckoutModal";
 import { description, title, cards } from "./styles";
-import React, { useState } from "react";
+import React from "react";
 
 const imageUrls = [
   "https://images.unsplash.com/photo-1498206005704-36d87df55231?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8d2FsbHBhcGVyc3x8fHx8fDE2OTc4OTY3MDM&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",

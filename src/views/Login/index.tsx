@@ -15,12 +15,53 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-
 import InputAdornment from "@mui/material/InputAdornment";
 
 export const Login = () => {
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(true);
+
+  // const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setEmail(event.target.value);
+  // };
+
+  // const handleChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setPassword(event.target.value);
+  // };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
+
+    fetch('localhost:4000/moradores/login/'+data.get("email")+"/"+data.get("password"), {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      //body: JSON.stringify(data),
+      //body: {
+        //email: data.get('email'),
+        //password: data.get('password')
+      //}
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // faça algo com os dados retornados pela API
+        console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+      })
+      .catch((error) => {
+        // gerencie erros
+        console.error('Houve um erro ao chamar a API: ', error);
+      });
+
+  };
+
 
   return (
     <Grid container>
@@ -124,23 +165,29 @@ export const Login = () => {
               </Box>
             </Box>
 
-            <Box mt={3}>
+            <Box mt={3} component="form" onSubmit={handleSubmit} noValidate>
               <Box ml={"75px"}>
                 <TextField
-                  id="outlined-basic"
-                  label="E-mail"
+                  id="email"
+                  required
+                  label="email"
                   variant="outlined"
+                  name="email"
                   className={classes.input}
+                // onChange={handleChangeEmail}
                 />
               </Box>
 
               <Box mt={3} ml={"75px"}>
                 <TextField
-                  id="outlined-basic"
-                  label="Senha"
+                  id="password"
+                  label="password"
+                  required
                   variant="outlined"
-                  className={classes.input}
-                  type={showPassword ? "password" : "text"}
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  // onChange={handleChangePassword}
+                  // value={password}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -195,20 +242,19 @@ export const Login = () => {
                   </Box>
                 </Box>
               </Box>
-            </Box>
+              <Box display="flex" marginLeft={"75px"} mt={4}>
+                <Button
+                  type="submit"
+                  // href="/home"
+                  variant="contained"
+                  color="primary"
+                  className={classes.btn}
+                >
+                  <Typography sx={{ fontFamily: "Poppins", fontSize: "24px", fontWeight: 700 }}> Entrar </Typography>
 
-            <Box display="flex" marginLeft={"75px"} mt={4}>
-              <Button
-                href="/home"
-                variant="contained"
-                color="primary"
-                className={classes.btn}
-              >
-                <Typography sx={{ fontFamily: "Poppins", fontSize: "24px",  fontWeight: 700}}> Entrar </Typography>
-                
-              </Button>
+                </Button>
+              </Box>
             </Box>
-
             <Box ml={20} mt={4}>
               <Box mb={1}>
                 <Typography sx={{ fontFamily: "Poppins" }}> Não tem uma conta?
