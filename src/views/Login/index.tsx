@@ -181,6 +181,7 @@ export const Login = () => {
 
               <Box mt={3} ml={"75px"}>
                 <TextField
+                  sx = {{width: "470px"}}
                   id="password"
                   label="password"
                   required
@@ -193,7 +194,7 @@ export const Login = () => {
                     endAdornment: (
                       <InputAdornment position="end">
                         <Button
-                          sx={{ position: "end", mr: "-10px", color: "#696969" }}
+                          sx={{ position: "end", mr: "-10px", color: "#696969", }}
                           id="show-password"
                           onClick={() => setShowPassword(!showPassword)}
                         >
