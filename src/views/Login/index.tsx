@@ -39,10 +39,11 @@ export const Login = () => {
       password: data.get('password'),
     });
 
-    fetch('localhost:4000/moradores/login/'+data.get("email")+"/"+data.get("password"), {
+    fetch('http://localhost:4000/moradores/login/'+data.get("email")+"/"+data.get("password"), {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        
       },
       //body: JSON.stringify(data),
       //body: {
@@ -53,7 +54,7 @@ export const Login = () => {
       .then((response) => response.json())
       .then((data) => {
         // faça algo com os dados retornados pela API
-        console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        console.log("Funcinou");
       })
       .catch((error) => {
         // gerencie erros
