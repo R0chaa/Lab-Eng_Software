@@ -41,7 +41,7 @@ export const useStyles = makeStyles(() => ({
 		background: "linear-gradient(90deg, #AD00FE 1.72%, rgba(50, 168, 235, 0.50) 101.11%)",
 	},
 	input: {
-		width: "470px",
+		width: "600px",
 	},
 	link: {
 		textDecoration: "none !important",

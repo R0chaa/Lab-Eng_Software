@@ -171,7 +171,7 @@ export const Login = () => {
                 <TextField
                   id="email"
                   required
-                  label="email"
+                  label="E-mail"
                   variant="outlined"
                   name="email"
                   className={classes.input}
@@ -183,7 +183,7 @@ export const Login = () => {
                 <TextField
                   sx = {{width: "470px"}}
                   id="password"
-                  label="password"
+                  label="Senha"
                   required
                   variant="outlined"
                   name="password"
