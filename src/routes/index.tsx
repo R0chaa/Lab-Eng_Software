@@ -5,6 +5,7 @@ import { Home } from "views/Home";
 import { Register } from "views/Register";
 import { Locals } from "views/Locals";
 import { Foruns } from "views/Foruns";
+import { System } from "views/System";
 
 export const router = createBrowserRouter([
 	{
@@ -31,5 +32,9 @@ export const router = createBrowserRouter([
 	{
 		path: "/foruns",
 		element: <Foruns />,
+	},
+	{
+		path: "/system",
+		element: <System />,
 	},
 ]);

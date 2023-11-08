@@ -62,6 +62,20 @@ export default function CheckoutModal() {
                     Voltar{" "}
                   </Typography>
                 </Button>
+                <Typography
+                  sx={{
+                    mt: "22px",
+                    ml: "720px",
+                    color: "#0C4565",
+                    fontFamily: "Montserrat",
+                    fontSize: "64px",
+                    fontStyle: "normal",
+                    fontWeight: 700,
+                    lineHeight: "135.5%",
+                  }}
+                >
+                  Fórum
+                </Typography>
               </Box>
             </Grid>
             <Box>
@@ -80,9 +94,13 @@ export default function CheckoutModal() {
               <img
                 src="/photo.png"
                 alt=""
-                style={{ marginLeft: "-850px", marginBottom: "50px"}}
+                style={{ marginLeft: "-850px", marginBottom: "50px" }}
               />
-              <img src="/document.png" alt="" style={{ marginLeft: "30px", marginBottom: "50px" }} />
+              <img
+                src="/document.png"
+                alt=""
+                style={{ marginLeft: "30px", marginBottom: "50px" }}
+              />
             </Box>
             <Box>
               <TextField
