@@ -12,7 +12,7 @@ import { Footer } from "./Components/Footer";
 import BasicModal from "./Components/Modal";
 import CheckoutModal from "./Components/CheckoutModal";
 import { description, title, cards } from "./styles";
-import React, { useState } from "react";
+import React from "react";
 
 const imageUrls = [
   "https://images.unsplash.com/photo-1498206005704-36d87df55231?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8d2FsbHBhcGVyc3x8fHx8fDE2OTc4OTY3MDM&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
@@ -24,13 +24,11 @@ const imageUrls = [
   "https://images.unsplash.com/photo-1609528138312-25c1111cfb3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8d2FsbHBhcGVyc3x8fHx8fDE2OTc4OTY3MjY&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
   "https://source.unsplash.com/random?wallpapers",
 ];
+
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export const Locals = () => {
-  const [open, setOpen] = React.useState(false);
-  const handleChange = () => setOpen(!open);
-
+export const Foruns = () => {
   return (
     <ThemeProvider theme={defaultTheme}>
       <Bar />
@@ -47,7 +45,7 @@ export const Locals = () => {
           {/* End hero unit */}
           <Grid container spacing={4} mt={-20}>
             {cards.map((card) => (
-              <Grid item key={Math.random()} xs={12} sm={6} md={6}>
+              <Grid item key={card} xs={12} sm={6} md={6}>
                 <Card
                   sx={{
                     height: "100%",
@@ -63,25 +61,19 @@ export const Locals = () => {
                       // 16:9
                       pt: "56.25%",
                     }}
-                    image={card.img}
+                    image={imageUrls[card - 1]}
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      {card.title}
+                      {title[card - 1]}
                     </Typography>
-                    <Typography>{card.description}</Typography>
+                    <Typography>{description[card - 1]}</Typography>
                   </CardContent>
                   <CardActions>
                     {/* <button onClick={() => handleCardClick(card)}>
                       Open Modal
                     </button> */}
-                    <Button onClick={handleChange}>Saiba mais</Button>
-                    <BasicModal
-                      title={card.title}
-                      description={card.description}
-                      open={open}
-                      handleChange={handleChange}
-                    />
+                    <BasicModal/>
                     <CheckoutModal />
                   </CardActions>
                 </Card>

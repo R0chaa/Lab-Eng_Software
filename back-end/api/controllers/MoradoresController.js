@@ -11,11 +11,15 @@ class MoradoresController{
         }
     };
     static async selectMorador(req,res){
-        const { id } = req.params;
+        const email = req.params.email;
+        const senha = req.params.password;
+        //const email = req.body.email;
+        //const password = req.body.password;
         try{
             const Morador = await database.Moradores.findOne( {
                  where  : {
-                     id: Number(id) 
+                     email: String(email),
+                     senha: String(senha)
                     }
                 });
             return res.status(200).json(Morador);
