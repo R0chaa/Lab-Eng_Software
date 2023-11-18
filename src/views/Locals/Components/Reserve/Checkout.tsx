@@ -12,15 +12,13 @@ import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
 
-const steps = ['Informações', 'Período', 'Confirmação'];
+const steps = ['Período', 'Confirmação'];
 
 function getStepContent(step: number) {
   switch (step) {
     case 0:
-      return <AddressForm />;
-    case 1:
       return <PaymentForm />;
-    case 2:
+    case 1:
       return <Review />;
     default:
       throw new Error('Unknown step');

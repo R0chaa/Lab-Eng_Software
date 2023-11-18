@@ -10,7 +10,7 @@ export default function AddressForm() {
         Informações do evento
       </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
+        {/* <Grid item xs={12} sm={6}>
           <TextField
             required
             id="firstName"
@@ -20,8 +20,8 @@ export default function AddressForm() {
             autoComplete="given-name"
             variant="standard"
           />
-        </Grid>
-        <Grid item xs={12} sm={6}>
+        </Grid> */}
+        {/* <Grid item xs={12} sm={6}>
           <TextField
             required
             id="lastName"
@@ -31,8 +31,8 @@ export default function AddressForm() {
             autoComplete="family-name"
             variant="standard"
           />
-        </Grid>
-        <Grid item xs={12}>
+        </Grid> */}
+        {/* <Grid item xs={12}>
           <TextField
             required
             id="address1"
@@ -42,8 +42,8 @@ export default function AddressForm() {
             autoComplete="shipping address-line1"
             variant="standard"
           />
-        </Grid>
-        <Grid item xs={12}>
+        </Grid> */}
+        {/* <Grid item xs={12}>
           <TextField
             id="address2"
             name="address2"
@@ -52,7 +52,7 @@ export default function AddressForm() {
             autoComplete="shipping address-line2"
             variant="standard"
           />
-        </Grid>
+        </Grid> */}
         {/* <Grid item xs={12}>
           <FormControlLabel
             control={<Checkbox color="secondary" name="saveAddress" value="yes" />}

@@ -1,8 +1,17 @@
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes";
 
-function App() {
+
+var user : string;
+
+export function App() {
 	return <RouterProvider router={router} />;
 }
 
-export default App;
+export function setUser(data: string){
+	user = data;
+}
+
+export function getUser(){
+	return user;
+}
