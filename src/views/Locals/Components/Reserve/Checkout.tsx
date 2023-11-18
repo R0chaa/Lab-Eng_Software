@@ -8,8 +8,14 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import PaymentForm from './PaymentForm';
 import Review from './Review';
+import dayjs, { Dayjs } from "dayjs";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DateTimeField } from "@mui/x-date-pickers/DateTimeField";
+import { getUser } from 'App';
+import { useNavigate } from 'react-router-dom';
 
 const steps = ['Período', 'Confirmação'];
 
@@ -26,6 +32,8 @@ function getStepContent(step: number) {
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const navigate = useNavigate();
+  const idUser = getUser();
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -35,7 +43,9 @@ export default function Checkout() {
     setActiveStep(activeStep - 1);
   };
 
+  
   return (
+    
     <React.Fragment>
       <CssBaseline />
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
@@ -51,12 +61,13 @@ export default function Checkout() {
             ))}
           </Stepper>
           {activeStep === steps.length ? (
+
             <React.Fragment>
               <Typography variant="h5" gutterBottom>
                 Reserva confirmada.
               </Typography>
               <Typography variant="subtitle1">
-                Enviamos a confirmação da sua reserva por e-mail, agradecemos pela confiança.
+                Agradecemos pela confiança.
               </Typography>
             </React.Fragment>
           ) : (
@@ -83,6 +94,70 @@ export default function Checkout() {
           )}
         </Paper>
       </Container>
+    </React.Fragment>
+  );
+}
+
+export interface JsonStructure {
+  currentDate: {
+    date: string;
+    time: string;
+  };
+}
+
+interface BasicDateRangePickerProps {
+  onChangeJson: (json: JsonStructure) => void;
+}
+
+export function BasicDateRangePicker({ onChangeJson }: BasicDateRangePickerProps) {
+  const [value, setValue] = React.useState<Dayjs | null>(
+    dayjs("2022-04-17 17:30")
+  );
+
+  const currentDateObject = value
+    ? {
+        date: value.format("DD-MM-YYYY"),
+        time: value.format("HH:mm"),
+      }
+    : {
+        date: "",
+        time: "",
+      };
+
+  const jsonStructure: JsonStructure = {
+    currentDate: currentDateObject,
+  };
+
+  // Chama a função de retorno de chamada fornecida pelo componente pai
+  React.useEffect(() => {
+    onChangeJson(jsonStructure);
+  }, [jsonStructure, onChangeJson]);
+
+  return (
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <DemoContainer components={["DateTimeField"]}>
+        <DateTimeField
+          label="Horario"
+          value={value}
+          onChange={(newValue) => setValue(newValue)}
+          format="L HH:mm"
+        />
+      </DemoContainer>
+    </LocalizationProvider>
+  );
+}
+
+export function PaymentForm() {
+  const handleJsonChange = (json: JsonStructure) => {
+    console.log(json);
+  };
+
+  return (
+    <React.Fragment>
+      <Typography variant="h6" gutterBottom>
+        Período da reserva
+        <BasicDateRangePicker onChangeJson={handleJsonChange} />
+      </Typography>
     </React.Fragment>
   );
 }

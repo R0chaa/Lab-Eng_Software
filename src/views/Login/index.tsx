@@ -62,7 +62,7 @@ export const Login = () => {
         } else {
           setUser(data);
           navigate('/system', { state: { userData: data } });
-          console.log('Funcionou', data);
+
         }
       })
       .catch((error) => {
