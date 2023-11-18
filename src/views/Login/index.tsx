@@ -199,7 +199,6 @@ export const Login = () => {
 
             <Box display="flex" marginLeft={"75px"} mt={4}>
               <Button
-                href="/home"
                 variant="contained"
                 color="primary"
                 className={classes.btn}
