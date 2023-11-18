@@ -11,8 +11,8 @@ import { Bar } from "./Components/Bar";
 import { Footer } from "./Components/Footer";
 import BasicModal from "./Components/Modal";
 import CheckoutModal from "./Components/CheckoutModal";
-import { description, title, cards } from "./styles";
-import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const imageUrls = [
   "https://images.unsplash.com/photo-1498206005704-36d87df55231?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8d2FsbHBhcGVyc3x8fHx8fDE2OTc4OTY3MDM&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
@@ -28,8 +28,47 @@ const imageUrls = [
 const defaultTheme = createTheme();
 
 export const Locals = () => {
-  const [open, setOpen] = React.useState(false);
-  const handleChange = () => setOpen(!open);
+  const [localsData, setLocalsData] = useState<any[]>([]);
+  const [fetchDone, setFetchDone] = useState(false);
+  const location = useLocation();
+  const condData = location.state?.condData || null;
+  const navigate = useNavigate();
+
+  console.log(condData);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:4000/localidades/" + condData.id,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        const data = await response.json();
+
+        if (data === null) {
+          console.log("Os dados retornados são nulos.");
+          // Faça algo apropriado para lidar com a situação de dados nulos
+        } else {
+          setLocalsData(data);
+          console.log("Funcionou", data);
+        }
+      } catch (error) {
+        // gerencie erros
+        console.error("Houve um erro ao chamar a API: ", error);
+      }
+      setFetchDone(true);
+    };
+
+    if (!fetchDone) {
+      fetchData();
+    }
+  }, [condData, localsData]);
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -46,8 +85,8 @@ export const Locals = () => {
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4} mt={-20}>
-            {cards.map((card) => (
-              <Grid item key={Math.random()} xs={12} sm={6} md={6}>
+            {localsData.map((local) => (
+              <Grid item key={local.id} xs={12} sm={6} md={6}>
                 <Card
                   sx={{
                     height: "100%",
@@ -63,26 +102,15 @@ export const Locals = () => {
                       // 16:9
                       pt: "56.25%",
                     }}
-                    image={card.img}
+                    image={imageUrls[1]}
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      {card.title}
+                      <p>{local.nome}</p>
                     </Typography>
-                    <Typography>{card.description}</Typography>
                   </CardContent>
                   <CardActions>
-                    {/* <button onClick={() => handleCardClick(card)}>
-                      Open Modal
-                    </button> */}
-                    <Button onClick={handleChange}>Saiba mais</Button>
-                    <BasicModal
-                      title={card.title}
-                      description={card.description}
-                      open={open}
-                      handleChange={handleChange}
-                    />
-                    <CheckoutModal />
+                    <CheckoutModal/>
                   </CardActions>
                 </Card>
               </Grid>

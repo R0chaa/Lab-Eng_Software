@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { description, title, cards } from "../../styles";
 
 const style = {
   position: "absolute" as "absolute",
@@ -16,21 +17,26 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal({title, description, open, handleChange} : {title: string, description: string, open: boolean, handleChange: () => void}) {
+export default function BasicModal() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <div>
+      <Button onClick={handleOpen}>Saiba mais</Button>
       <Modal
         open={open}
-        onClose={handleChange}
+        onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            {title}
+            {title[0]}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {description}
+            {description[0]}
           </Typography>
         </Box>
       </Modal>

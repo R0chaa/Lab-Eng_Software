@@ -16,6 +16,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import InputAdornment from "@mui/material/InputAdornment";
+import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
   // const [email, setEmail] = useState('');
@@ -30,6 +31,7 @@ export const Login = () => {
   // const handleChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
   //   setPassword(event.target.value);
   // };
+  const navigate = useNavigate();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -53,8 +55,13 @@ export const Login = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        // faça algo com os dados retornados pela API
-        console.log("Funcinou");
+        if (data === null) {
+          console.log('Os dados retornados são nulos.');
+          // Faça algo apropriado para lidar com a situação de dados nulos
+        } else {
+          navigate('/system', { state: { userData: data } });
+          console.log('Funcionou', data);
+        }
       })
       .catch((error) => {
         // gerencie erros
@@ -244,18 +251,17 @@ export const Login = () => {
                   </Box>
                 </Box>
               </Box>
-            </Box>
+              <Box display="flex" marginLeft={"75px"} mt={4}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  className={classes.btn}
+                >
+                  <Typography sx={{ fontFamily: "Poppins", fontSize: "24px", fontWeight: 700 }}> Entrar </Typography>
 
-            <Box display="flex" marginLeft={"75px"} mt={4}>
-              <Button
-                href="/home"
-                variant="contained"
-                color="primary"
-                className={classes.btn}
-              >
-                <Typography sx={{ fontFamily: "Poppins", fontSize: "24px",  fontWeight: 700}}> Entrar </Typography>
-                
-              </Button>
+                </Button>
+              </Box>
             </Box>
             <Box ml={20} mt={4}>
               <Box mb={1}>

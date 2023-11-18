@@ -13,9 +13,9 @@ class LocalidadesController{
     static async selectLocalidade(req,res){
         const { id } = req.params;
         try{
-            const Localidade = await database.Localidades.findOne( {
+            const Localidade = await database.Localidades.findAll( {
                  where  : {
-                     id: Number(id) 
+                     id_condominio: Number(id) 
                     }
                 });
             return res.status(200).json(Localidade);

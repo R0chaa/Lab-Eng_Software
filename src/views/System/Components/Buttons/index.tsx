@@ -4,7 +4,8 @@ import Button from "@mui/material/Button";
 export function LocalsButton() {
   return (
     <div>
-      <Button><a href="/locals">Ambientes</a></Button>
+      <Button>
+        Ambientes</Button>
     </div>
   );
 }
