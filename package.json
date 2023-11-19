@@ -9,7 +9,7 @@
     "@mui/core": "^5.0.0-alpha.54",
     "@mui/icons-material": "^5.14.9",
     "@mui/lab": "^5.0.0-alpha.149",
-    "@mui/material": "^5.14.9",
+    "@mui/material": "^5.14.18",
     "@mui/styles": "^5.14.9",
     "@mui/x-date-pickers": "^6.18.1",
     "@mui/x-date-pickers-pro": "^6.16.3",
@@ -20,8 +20,10 @@
     "@types/node": "^16.18.52",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
+    "axios": "^1.6.2",
     "date-fns": "^2.30.0",
     "dayjs": "^1.11.10",
+    "js-cookie": "^3.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.19.0",
@@ -54,6 +56,8 @@
     ]
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/js-cookie": "^3.0.6",
     "@types/react-router-dom": "^5.3.3"
   }
 }

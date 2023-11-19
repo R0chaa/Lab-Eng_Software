@@ -1,14 +1,135 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
-import { Grid, Box, Typography, TextField } from "@mui/material";
+import { Grid, Box, Typography, TextField, Paper } from "@mui/material";
 import { useStyles } from "../../styles";
+import { getIdMorador, getMorador } from "App";
+
+
+
+interface Mensagem {
+  id: number;
+  data_post: string;
+  post: string;
+  createdAt: string;
+  updatedAt: string;
+  id_morador: number;
+}
+
+interface MensagensDisplayProps {
+  mensagens: Mensagem[];
+}
+
+export async function enviarMensagem(mensagem: string): Promise<Mensagem | null> {
+  try {
+    const id_morador = getMorador();
+    const response = await fetch('http://localhost:4000/forums', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        data_post: new Date().toISOString(),
+        post: mensagem,
+        id_morador: id_morador.id
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error('Erro ao enviar mensagem:', data);
+      return null;
+    }
+
+    return data;
+  } catch (error) {
+    console.error('Houve um erro ao chamar a API: ', error);
+    throw error;
+  }
+}
+
+export async function fetchMensagens(): Promise<Mensagem[]> {
+  try {
+    const response = await fetch('http://localhost:4000/forums', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.log('Erro ao obter mensagens:', data);
+      return [];
+    }
+
+    return data;
+  } catch (error) {
+    console.error('Houve um erro ao chamar a API: ', error);
+    throw error;
+  }
+}
+
+
+
+export const MensagensDisplay: React.FC<MensagensDisplayProps> = ({ mensagens }) => {
+  const formatarData = (data: string) => {
+    const dataFormatada = new Date(data);
+    return dataFormatada.toLocaleString(); // Ajuste aqui conforme necessário
+  };
+
+  return (
+    <Box sx={{ overflow: 'auto', maxHeight: '500px' }}>
+      {mensagens.map((mensagem) => (
+        <Paper key={mensagem.id} elevation={3} style={{ margin: "10px", padding: "10px" }}>
+          <Typography variant="body1">#{mensagem.id} - Morador: {mensagem.id_morador} --  Data do post: {formatarData(mensagem.data_post)}</Typography>
+          <Typography variant="body1">{mensagem.post}</Typography>
+          {/* Adicione mais informações da mensagem conforme necessário */}
+        </Paper>
+      ))}
+    </Box>
+  );
+};
 
 export default function CheckoutModal() {
   const [open, setOpen] = React.useState(false);
+  const [mensagens, setMensagens] = useState<Mensagem[]>([]);
+  const classes = useStyles();
+  const [mensagem, setMensagem] = useState("");
+
+
+  useEffect(() => {
+    fetchMensagens()
+      .then((data) => setMensagens(data))
+      .catch((error) => console.error('Erro ao obter mensagens:', error));
+  }, []);
+
+  const setMessage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setMensagem(event.target.value);
+  };
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const classes = useStyles();
+
+  const handleEnviarMensagem = async () => {
+    if (mensagem != '') {
+
+
+      try {
+        const novaMensagem = await enviarMensagem(mensagem);
+
+        if (novaMensagem) {
+          setMensagens([...mensagens, novaMensagem]);
+          setMensagem('');
+        }
+      } catch (error) {
+        console.error('Erro ao enviar mensagem:', error);
+      }
+    }
+  };
+
 
   return (
     <div>
@@ -79,29 +200,11 @@ export default function CheckoutModal() {
               </Box>
             </Grid>
             <Box>
-              <img
-                src="/participantes.png"
-                alt=""
-                style={{ marginLeft: "970px", marginTop: "20px" }}
-              />
-              <img
-                src="/chat_background.png"
-                alt=""
-                width={"940px"}
-                height={"682px"}
-                style={{ marginTop: "-73px" }}
-              />
-              <img
-                src="/photo.png"
-                alt=""
-                style={{ marginLeft: "-850px", marginBottom: "50px" }}
-              />
-              <img
-                src="/document.png"
-                alt=""
-                style={{ marginLeft: "30px", marginBottom: "50px" }}
-              />
+              <MensagensDisplay mensagens={mensagens} />
             </Box>
+
+
+
             <Box>
               <TextField
                 id="message"
@@ -109,14 +212,31 @@ export default function CheckoutModal() {
                 label="Digite"
                 variant="outlined"
                 name="message"
-                className={classes.input}
+                value={mensagem}
+                onChange={setMessage}
                 sx={{
-                  ml: "250px",
-                  mt: "-100px",
-                  borderRadius: "50px 50px 50px 50px",
+                  ml: "25%",
+                  mt: "5%",
+                  width: "700px",
+                  borderRadius: "5% 5% 5% 5%",
                   color: "#606060",
                 }}
               />
+              <Button sx={{ mt: "65px", ml: "10px", borderRadius: "50px" }}
+                variant="contained"
+                color="primary"
+                className={classes.btn}
+                onClick={handleEnviarMensagem}>
+                <Typography sx={{
+                  fontFamily: "Poppins",
+                  fontSize: "24px",
+                  fontWeight: 700,
+                }}
+
+                >
+                  Enviar
+                </Typography>
+              </Button>
             </Box>
           </Grid>
         </Grid>

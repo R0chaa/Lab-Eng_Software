@@ -14,7 +14,7 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimeField } from "@mui/x-date-pickers/DateTimeField";
-import { getUser } from 'App';
+import { getMorador } from 'App';
 import { useNavigate } from 'react-router-dom';
 
 const steps = ['Período', 'Confirmação'];
@@ -33,7 +33,7 @@ function getStepContent(step: number) {
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
   const navigate = useNavigate();
-  const idUser = getUser();
+  const idUser = getMorador()?.id;
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);

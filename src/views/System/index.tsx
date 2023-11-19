@@ -117,7 +117,7 @@ export function System() {
                 
                 <CardActions>
                   <Button onClick={() => {navigate('/locals', { state: { condData }})}}>Ambientes</Button>
-                  <Button>Fóruns</Button>
+                  <Button onClick={() => {navigate('/foruns', { state: { condData }})}}>Fóruns</Button>
                 </CardActions>
               </Card>
             </Grid>

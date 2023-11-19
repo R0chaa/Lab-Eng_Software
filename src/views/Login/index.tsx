@@ -17,7 +17,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import InputAdornment from "@mui/material/InputAdornment";
 import { useNavigate } from 'react-router-dom';
-import {setUser} from '../../App'
+import {setMorador} from '../../App'
 
 export const Login = () => {
   // const [email, setEmail] = useState('');
@@ -60,7 +60,7 @@ export const Login = () => {
           console.log('Os dados retornados são nulos.');
           // Faça algo apropriado para lidar com a situação de dados nulos
         } else {
-          setUser(data);
+          setMorador(data);
           navigate('/system', { state: { userData: data } });
 
         }
