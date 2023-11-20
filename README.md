@@ -43,3 +43,13 @@ Você também poderá ver uma lista de erros no console.
 * É necessário estar conectado à internet.
 
 **Link para o Figma:** [Clique aqui](https://www.figma.com/proto/4sy8ACST66XJyN8ZVUXbm8/Lab-de-Eng-de-Software?type=design&node-id=104-6&t=8PccaMAh70WY6Szz-0&scaling=min-zoom&page-id=104%3A2&starting-point-node-id=104%3A6)
+
+### Diagrama de caso de uso
+![image](https://github.com/R0chaa/Lab-Eng_Software/assets/88636387/0f6630c4-41ca-488a-b34d-800e3ead264d)
+
+### Diagrama de classes
+![image](https://github.com/R0chaa/Lab-Eng_Software/assets/88636387/39c41523-f09a-4f28-9a1c-389b8d824915)
+
+### Diagrama de sequência
+![image](https://github.com/R0chaa/Lab-Eng_Software/assets/88636387/4a48ab07-93ad-464b-a9f6-10686502442d)
+
