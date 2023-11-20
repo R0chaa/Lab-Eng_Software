@@ -10,8 +10,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Bar } from "./Components/Bar";
 import { Footer } from "./Components/Footer";
 import BasicModal from "./Components/Modal";
-import CheckoutModal from "./Components/CheckoutModal";
-import { useLocation, useNavigate } from "react-router-dom";
+import { CheckoutModal } from "./Components/CheckoutModal";
+import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const imageUrls = [
@@ -32,9 +32,6 @@ export const Locals = () => {
   const [fetchDone, setFetchDone] = useState(false);
   const location = useLocation();
   const condData = location.state?.condData || null;
-  const navigate = useNavigate();
-
-  console.log(condData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,7 +53,6 @@ export const Locals = () => {
           // Faça algo apropriado para lidar com a situação de dados nulos
         } else {
           setLocalsData(data);
-          console.log("Funcionou", data);
         }
       } catch (error) {
         // gerencie erros
@@ -110,7 +106,7 @@ export const Locals = () => {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <CheckoutModal/>
+                    <CheckoutModal localId={local.id}/>
                   </CardActions>
                 </Card>
               </Grid>

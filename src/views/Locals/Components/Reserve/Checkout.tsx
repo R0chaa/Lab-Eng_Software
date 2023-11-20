@@ -15,35 +15,73 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimeField } from "@mui/x-date-pickers/DateTimeField";
 import { getMorador } from 'App';
-import { useNavigate } from 'react-router-dom';
 
 const steps = ['Período', 'Confirmação'];
 
-function getStepContent(step: number) {
-  switch (step) {
-    case 0:
-      return <PaymentForm />;
-    case 1:
-      return <Review />;
-    default:
-      throw new Error('Unknown step');
-  }
+interface CheckoutProps {
+  localId: number;
 }
 
-export default function Checkout() {
+export default function Checkout({ localId }: CheckoutProps) {
   const [activeStep, setActiveStep] = React.useState(0);
-  const navigate = useNavigate();
-  const idUser = getMorador()?.id;
+  const [datetimeJson, setDatetimeJson] = React.useState<JsonStructure | null>(null);
+  const morador = getMorador();
 
   const handleNext = () => {
-    setActiveStep(activeStep + 1);
+    if (activeStep == steps.length -1){
+      onConfirm();
+      setActiveStep(activeStep + 1);
+    }else{
+      if (activeStep === 0){
+        setDatetimeJson(datetimeJson);
+      }
+      setActiveStep(activeStep + 1);
+    }
   };
 
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
 
+  function getStepContent(step: number) {
+    switch (step) {
+      case 0:
+        return <PaymentForm onChangeJson={setDatetimeJson}/>
+      case 1:
+        return <Review/>;
+      default:
+        throw new Error('Unknown step');
+    }
+  }
   
+  const onConfirm = () => {
+    fetch('http://localhost:4000/reserva', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        dia:datetimeJson?.currentDate.date,
+        horario: datetimeJson?.currentDate.time,
+        id_morador: morador.id,
+        id_localidade: localId,
+      }),
+
+    })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((reservaCriada) => {
+      console.log('Reserva criada com sucesso:', reservaCriada);
+    })
+    .catch((error) => {
+      console.error('Erro na inserção de reserva:', error);
+    });
+  }
+
   return (
     
     <React.Fragment>
@@ -114,20 +152,22 @@ export function BasicDateRangePicker({ onChangeJson }: BasicDateRangePickerProps
     dayjs("2022-04-17 17:30")
   );
 
-  const currentDateObject = value
-    ? {
-        date: value.format("DD-MM-YYYY"),
-        time: value.format("HH:mm"),
-      }
-    : {
-        date: "",
-        time: "",
-      };
-
-  const jsonStructure: JsonStructure = {
-    currentDate: currentDateObject,
-  };
-
+  const jsonStructure = React.useMemo(() => {
+    const currentDateObject = value
+      ? {
+          date: value.format("YYYY-MM-DD"),  // Modificado para o formato ISO 8601
+          time: value.format("HH:mm:ss"),   // Modificado para incluir segundos
+        }
+      : {
+          date: "",
+          time: "",
+        };
+  
+    return {
+      currentDate: currentDateObject,
+    };
+  }, [value]);
+  
   // Chama a função de retorno de chamada fornecida pelo componente pai
   React.useEffect(() => {
     onChangeJson(jsonStructure);
@@ -147,9 +187,9 @@ export function BasicDateRangePicker({ onChangeJson }: BasicDateRangePickerProps
   );
 }
 
-export function PaymentForm() {
+export function PaymentForm({ onChangeJson }: BasicDateRangePickerProps) {
   const handleJsonChange = (json: JsonStructure) => {
-    console.log(json);
+    onChangeJson(json)
   };
 
   return (

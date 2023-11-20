@@ -28,6 +28,16 @@ class ReservasController{
     static async insertReserva(req,res){
         const Reserva = req.body;
         try{
+            const existeReserva = await database.Reservas.findOne({
+                where: {
+                    id_localidade:Reserva.id_localidade,
+                    dia: Reserva.dia,
+                    horario: Reserva.horario,
+                }
+            })
+            if (existeReserva){
+                return res.status(400).json({error: 'Localidade já reservada neste horario'});
+            }
             const ReservaCriada = await database.Reservas.create(Reserva);
             return res.status(200).json(ReservaCriada);
         }
