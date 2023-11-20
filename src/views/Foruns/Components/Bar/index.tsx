@@ -74,25 +74,25 @@ export function Bar() {
         <Box>
           <Typography sx = {{color: "#32A8EB", fontFamily: "Poppins", fontSize: "18px", fontStyle: "normal", fontWeight: 700,
 linHeight: "normal", mr:"40px", ml:"40px", mt:"12px"}}>
-            Sistema
+            <a style={{textDecoration: "none", color: "#32A8EB"}} href="/system">Sistema</a>
           </Typography>
         </Box>
 
         <Box>
           <Typography sx = {{color: "#32A8EB", fontFamily: "Poppins", fontSize: "18px", fontStyle: "normal", fontWeight: 700,
 linHeight: "normal", mr:"40px", mt:"12px"}}>
-            Cases
+            <a style={{textDecoration: "none", color: "#32A8EB"}} href="/locals">Ambientes</a>
           </Typography>
         </Box>
 
         <Box>
           <Typography sx = {{color: "#32A8EB", fontFamily: "Poppins", fontSize: "18px", fontStyle: "normal", fontWeight: 700,
 linHeight: "normal", mr:"40px", mt:"12px"}}>
-            Equipe
+            <a style={{textDecoration: "none", color: "#32A8EB"}} href="https://github.com/R0chaa/Lab-Eng_Software">Equipe</a>
           </Typography>
         </Box>
 
-        <Box>
+        {/* <Box>
           <Typography sx = {{color: "#32A8EB", fontFamily: "Poppins", fontSize: "18px", fontStyle: "normal", fontWeight: 700,
 linHeight: "normal", mr:"40px", mt:"12px"}}>
             Saiba mais
@@ -104,7 +104,7 @@ linHeight: "normal", mr:"40px", mt:"12px"}}>
 linHeight: "normal", mr:"40px", mt:"12px"}}>
             Contato
           </Typography>
-        </Box>
+        </Box> */}
 
         <Box sx={{ flexGrow: 1 }} />
         <Box sx={{ display: { xs: "none", md: "flex" } }}>

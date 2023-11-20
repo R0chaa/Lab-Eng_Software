@@ -7,35 +7,7 @@ import {
 } from "@mui/material";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
-import React, { useEffect, useRef, useState } from "react";
 
-type UseHoverType<T extends HTMLElement> = [React.RefObject<T>, boolean];
-
-function useHover<T extends HTMLElement>(): UseHoverType<T> {
-  const [value, setValue] = useState(false);
-
-  const ref = useRef<T>(null);
-
-  const handleMouseOver = () => setValue(true);
-  const handleMouseOut = () => setValue(false);
-
-  useEffect(
-    () => {
-      const node = ref.current;
-      if (node) {
-        node.addEventListener("mouseover", handleMouseOver);
-        node.addEventListener("mouseout", handleMouseOut);
-
-        return () => {
-          node.removeEventListener("mouseover", handleMouseOver);
-          node.removeEventListener("mouseout", handleMouseOut);
-        };
-      }
-    },
-  );
-
-  return [ref, value];
-}
 const Search = styled("div")(({ theme }) => ({
   backgroundImage: "url('/background.png')",
   position: "relative",
@@ -80,8 +52,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export function Bar() {
-  const [isHovered] = useHover();
-
   return (
     <AppBar
       position="static"
@@ -101,28 +71,28 @@ export function Bar() {
 
         <a href="/home"><img src="logo.png" alt="logo"/></a>
 
-        <Box >
+        <Box>
           <Typography sx = {{color: "#32A8EB", fontFamily: "Poppins", fontSize: "18px", fontStyle: "normal", fontWeight: 700,
 linHeight: "normal", mr:"40px", ml:"40px", mt:"12px"}}>
-            Sistema
+            <a style={{textDecoration: "none", color: "#32A8EB"}} href="/system">Sistema</a>
           </Typography>
         </Box>
 
-        <Box >
+        <Box>
           <Typography sx = {{color: "#32A8EB", fontFamily: "Poppins", fontSize: "18px", fontStyle: "normal", fontWeight: 700,
 linHeight: "normal", mr:"40px", mt:"12px"}}>
-            Cases
+            <a style={{textDecoration: "none", color: "#32A8EB"}} href="/locals">Ambientes</a>
           </Typography>
         </Box>
 
-        <Box >
+        <Box>
           <Typography sx = {{color: "#32A8EB", fontFamily: "Poppins", fontSize: "18px", fontStyle: "normal", fontWeight: 700,
 linHeight: "normal", mr:"40px", mt:"12px"}}>
-            Equipe
+            <a style={{textDecoration: "none", color: "#32A8EB"}} href="https://github.com/R0chaa/Lab-Eng_Software">Equipe</a>
           </Typography>
         </Box>
 
-        <Box >
+        {/* <Box>
           <Typography sx = {{color: "#32A8EB", fontFamily: "Poppins", fontSize: "18px", fontStyle: "normal", fontWeight: 700,
 linHeight: "normal", mr:"40px", mt:"12px"}}>
             Saiba mais
@@ -134,7 +104,7 @@ linHeight: "normal", mr:"40px", mt:"12px"}}>
 linHeight: "normal", mr:"40px", mt:"12px"}}>
             Contato
           </Typography>
-        </Box>
+        </Box> */}
 
         <Box sx={{ flexGrow: 1 }} />
         <Box sx={{ display: { xs: "none", md: "flex" } }}>

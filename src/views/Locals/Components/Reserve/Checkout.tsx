@@ -28,9 +28,8 @@ export default function Checkout({ localId }: CheckoutProps) {
   const morador = getMorador();
 
   const handleNext = () => {
-    if (activeStep == steps.length -1){
+    if (activeStep === steps.length -1){
       onConfirm();
-      setActiveStep(activeStep + 1);
     }else{
       if (activeStep === 0){
         setDatetimeJson(datetimeJson);
@@ -76,6 +75,7 @@ export default function Checkout({ localId }: CheckoutProps) {
     })
     .then((reservaCriada) => {
       console.log('Reserva criada com sucesso:', reservaCriada);
+      setActiveStep(activeStep + 1);
     })
     .catch((error) => {
       console.error('Erro na inserção de reserva:', error);
