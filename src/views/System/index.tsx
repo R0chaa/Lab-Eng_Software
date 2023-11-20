@@ -14,7 +14,7 @@ import { description, title, cards } from "./styles";
 import { useLocation, useNavigate} from "react-router-dom";
 import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
-
+import { getMorador} from "../../App"
 const imageUrls = [
   "https://images.unsplash.com/photo-1498206005704-36d87df55231?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8d2FsbHBhcGVyc3x8fHx8fDE2OTc4OTY3MDM&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
   "https://images.unsplash.com/photo-1560260240-c6ef90a163a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8d2FsbHBhcGVyc3x8fHx8fDE2OTc4OTY3MDc&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
@@ -23,7 +23,7 @@ const imageUrls = [
 export function System() {
   const [condData, setCondData] = useState<{ nome: string } | null>(null);
   const location = useLocation();
-  const userData = location.state?.userData || null;
+  const userData = getMorador();
   const navigate = useNavigate();
 
   useEffect(() => {

@@ -61,7 +61,7 @@ export const Login = () => {
           // Faça algo apropriado para lidar com a situação de dados nulos
         } else {
           setMorador(data);
-          navigate('/system', { state: { userData: data } });
+          navigate('/system');
 
         }
       })

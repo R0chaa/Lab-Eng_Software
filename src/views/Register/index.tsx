@@ -12,13 +12,38 @@ import { Footer } from "./Components/Footer";
 import { useState } from "react";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-
+import { useNavigate } from "react-router";
 import InputAdornment from "@mui/material/InputAdornment";
 
 export const Register = () => {
+  const navigate = useNavigate();
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(true);
 
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [residencia, setResidencia] = useState("");
+  const [condominio, setCondominio] = useState("");
+
+  const handleRegister = () => {
+    fetch('http://localhost:4000/moradores', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        senha: senha,
+        nome_completo: nome,
+        residencia: residencia,
+        telefone: telefone,
+        id_condominio: condominio
+      }),
+    });
+    navigate('/login');
+  }
   return (
     <Grid container>
       <GlobalStyles
@@ -116,6 +141,8 @@ export const Register = () => {
                   label="Nome"
                   variant="outlined"
                   className={classes.input}
+                  value={nome}
+                  onChange={(e) => setNome(e.target.value)}
                 />
               </Box>
               <Box mt={3} ml={"75px"}>
@@ -124,6 +151,8 @@ export const Register = () => {
                   label="E-mail"
                   variant="outlined"
                   className={classes.input}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </Box>
 
@@ -134,6 +163,8 @@ export const Register = () => {
                   variant="outlined"
                   className={classes.input}
                   type={showPassword ? "password" : "text"}
+                  value={senha}
+                  onChange={(e) => setSenha(e.target.value)}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -174,6 +205,8 @@ export const Register = () => {
                   label="Telefone"
                   variant="outlined"
                   className={classes.input}
+                  value={telefone}
+                  onChange={(e) => setTelefone(e.target.value)}
                 />
               </Box>
               <Box>
@@ -183,14 +216,18 @@ export const Register = () => {
                     label="Número da Residência"
                     variant="outlined"
                     className={classes.shortInput}
+                    value={residencia}
+                    onChange={(e) => setResidencia(e.target.value)}
                   />
                 </Box>
                 <Box mt={-7} ml={"320px"}>
                   <TextField
                     id="outlined-basic"
-                    label="Bloco (Opcional)"
+                    label="Condominio"
                     variant="outlined"
                     className={classes.shortInput}
+                    value={condominio}
+                    onChange={(e) => setCondominio(e.target.value)}
                   />
                 </Box>
               </Box>
@@ -198,7 +235,7 @@ export const Register = () => {
 
             <Box display="flex" marginLeft={"75px"} mt={4}>
               <Button
-                href="/login"
+                onClick={handleRegister}
                 variant="contained"
                 color="primary"
                 className={classes.btn}

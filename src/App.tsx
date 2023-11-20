@@ -57,7 +57,7 @@ export function setMorador(data: Morador) {
 export function getMorador(): Morador {
   if (!morador) {
     morador = {
-      id: 0,
+      id: -1,
       email: "",
       senha: "",
       nome_completo: "",
@@ -71,9 +71,3 @@ export function getMorador(): Morador {
   return morador;
 }
 
-export function getIdMorador(): number {
-  if (!morador || morador.id === null) {
-    morador.id = 0;
-  }
-  return morador.id;
-}

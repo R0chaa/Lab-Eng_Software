@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import { Grid, Box, Typography, TextField, Paper } from "@mui/material";
 import { useStyles } from "../../styles";
-import { getIdMorador, getMorador } from "App";
+import { getMorador } from "App";
 
 
 

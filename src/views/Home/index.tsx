@@ -1,8 +1,12 @@
 import { GlobalStyles, Box, Typography } from "@mui/material";
 import { Bar } from "./Components/Bar";
 import { Footer } from "./Components/Footer";
+import { getMorador } from "../../App"
+
+
 
 export function Home() {
+  const morador = getMorador();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <GlobalStyles
@@ -68,9 +72,12 @@ export function Home() {
       </Box>
 
       <Box sx={{ ml: "70px", mt: "50px" }}>
-        <a href="/login">
+        {morador.id === -1 && (<a href="/login">
           <img src="Login.png" alt="Login"></img>
-        </a>
+        </a>)}
+        {morador.id !== -1 && (<a href="/system">
+          <img src="System.png" alt="System"></img>
+        </a>)}
       </Box>
 
       <Box sx={{ ml: "70px", mt: "180px" }}>
