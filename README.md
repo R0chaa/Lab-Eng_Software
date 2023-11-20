@@ -1,46 +1,45 @@
-# Getting Started with Create React App
+# CConnect
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![221380199-30bb6e46-b91e-42d4-b124-f95e387afce9](https://github.com/R0chaa/Lab-Eng_Software/assets/88636387/b54020d2-a068-4729-8198-bb3c6700f170)
 
-## Available Scripts
+# Resumo da proposta do projeto
 
-In the project directory, you can run:
+Muitos condomínios têm uma gestão baseada em métodos analógicos que dificultam a agilidade e praticidade de tarefas essenciais à rotina das pessoas que lá vivem e trabalham. Certas tarefas, como reservar ambientes comuns ou receber avisos sobre a manutenção, são espalhadas por meio de avisos no elevador ou nas centrais do condomínio, que nem sempre são eficazes em alertar os moradores. A ideia de precisar fazer tudo no papel ou, pelo menos, de forma presencial se mostra muito defasada e não pratica.
+
+Visando facilitar uma série de interações baseadas no que acabamos de relatar, nosso app surge como uma ótima maneira de simplificar e agilizar múltiplos processos dentro de um condomínio residencial.
+
+Uma aplicação WEB que possibilita o monitoramento geral das atividades do condomínio: Isto é CConnect.
+
+## Rodando a aplicação
+
+No diretório do projeto você pode executar o comando:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Agora é só abrir o [http://localhost:3000](http://localhost:3000) para ver a aplicação rodar em seu navegador :)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+A página irá recarregar caso hajam alterações.\
+Você também poderá ver uma lista de erros no console.
 
-### `npm test`
+### **Requisitos Funcionais:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Os usuários podem agendar eventos nas dependências do condomínio.
+* É necessário criar uma conta para utilizar a aplicação.
+* A aplicação deve contar com três fóruns distintos, sendo eles de: avisos; condôminos; administradores.
+* Moradores podem visualizar e interagir no fórum de discussões de condôminos.
+* Um administrador interno é capaz de emitir avisos gerais no fórum.
+* Moradores e funcionários podem apenas visualizar mensagens dentro do fórum de avisos.
+* Um administrador interno pode silenciar outros moradores no fórum de discussões.
+* Apenas administradores e funcionários podem acessar o fórum de administradores.
+* O responsável pela portaria, ao receber um produto, possa notificar os condôminos da encomenda.
+* Ao receber uma entrega, o morador confirma o recebimento da encomenda.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **Requisitos Não-Funcionais:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* O aplicativo deve assegurar os dados e privacidade de um um membro.
+* O aplicativo deve ser rápido.
+* A aplicação deve ser intuitiva e fluida.
+* É necessário estar conectado à internet.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Link para o Figma:** [Clique aqui](https://www.figma.com/proto/4sy8ACST66XJyN8ZVUXbm8/Lab-de-Eng-de-Software?type=design&node-id=104-6&t=8PccaMAh70WY6Szz-0&scaling=min-zoom&page-id=104%3A2&starting-point-node-id=104%3A6)
