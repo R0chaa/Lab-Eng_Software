@@ -4,7 +4,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors({
-    origin: '*' // Defina a origem que você deseja permitir
+    origin: 'http://localhost:3000' // Defina a origem que você deseja permitir
 }));
 
 const port = 4000;
